@@ -12,6 +12,25 @@ def more(text):
 
 url = 'http://python.org/'  # προσδιορισμός του url
 
+if not url.startswith("http://"):
+    url = "http://" + url
+
 with requests.get(url) as response:  # το αντικείμενο response
-    html = response.text
-    more(html)
+    #html = response.text
+    #more(html)
+    
+    print("Website headers are", url, "\n", response.headers, "\n\n")
+    
+    server = response.headers.get('Server')
+    
+    if server:
+        print("The server is", server)
+    else:
+        print("No server found")
+        
+    cookies = response.headers.get('Set-Cookie')
+    
+    if cookies:
+        print("The cookies are", cookies)
+    else:
+        print("No cookies found")
