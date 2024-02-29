@@ -10,7 +10,8 @@ def more(text):
             if reply == 'n':
                 break
 
-url = 'http://python.org/'  # προσδιορισμός του url
+#url = 'http://python.org/'  # προσδιορισμός του url
+url = input("Input URL:")
 
 if not url.startswith("http://"):
     url = "http://" + url
